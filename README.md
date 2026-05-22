@@ -141,13 +141,13 @@ flowchart TB
     classDef ui fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#eee
 
     %% External Systems
-    subgraph Space_Layer [External Space & Telemetry Interfaces]
+    subgraph Space_Layer ["External Space & Telemetry Interfaces"]
         SAT((fa:fa-satellite Low Earth Orbit Satellites)):::external
         CELESTRAK[("fa:fa-cloud CelesTrak TLE Data")]:::external
     end
 
     %% L0: Hardware & Benchmarking Layer
-    subgraph L0_Hardware [L0: Hardware & Benchmarking Layer]
+    subgraph L0_Hardware ["L0: Hardware & Benchmarking Layer"]
         ANT("fa:fa-satellite-dish Az/El Antenna Array"):::hardware
         SDR["fa:fa-microchip SDR Digitizer (RTL-SDR / HackRF / USRP)"]:::hardware
         BENCH["fa:fa-stopwatch SDR-Hardware-Benchmark<br/>(Throughput, dropped samples, CPU/GPU profiling)"]:::benchmark
@@ -157,7 +157,7 @@ flowchart TB
     end
 
     %% L1: Autonomous Pass Engine (Doppler-Auto-Tracker)
-    subgraph L1_Tracking [L1: Autonomous Pass Engine (Doppler-Auto-Tracker)]
+    subgraph L1_Tracking ["L1: Autonomous Pass Engine (Doppler-Auto-Tracker)"]
         SGP4["fa:fa-compass SGP4 Pass Propagator"]:::tracking
         ROT_CTRL["fa:fa-cogs PID Rotator Driver (Hamlib)"]:::tracking
         DOPPLER["fa:fa-wave-square Doppler Frequency Calculator"]:::tracking
@@ -169,7 +169,7 @@ flowchart TB
     end
 
     %% L2: GPU-Accelerated DSP (SatSDR-Universal)
-    subgraph L2_DSP [L2: GPU-Accelerated DSP (SatSDR-Universal)]
+    subgraph L2_DSP ["L2: GPU-Accelerated DSP (SatSDR-Universal)"]
         CHANNEL["fa:fa-filter Multi-Band Channelizer"]:::dsp
         DEMOD["fa:fa-music Baseband Demodulator (FM/SSB/AM)"]:::dsp
         SYNC["fa:fa-sync Carrier & Symbol Synchronizer"]:::dsp
@@ -181,7 +181,7 @@ flowchart TB
     end
 
     %% L3: Telemetry, AI & Security (CubeSat-Telemetry-Decoder)
-    subgraph L3_Telemetry [L3: Telemetry & AI (CubeSat-Telemetry-Decoder)]
+    subgraph L3_Telemetry ["L3: Telemetry & AI (CubeSat-Telemetry-Decoder)"]
         DECODE["fa:fa-shield-alt AX.25 / CSP Frame Deframer"]:::telemetry
         CRYPTO["fa:fa-key Cryptography Engine (XTEA Decryption)"]:::telemetry
         AI_ANOMALY["fa:fa-brain AI Anomaly Detection"]:::telemetry
@@ -192,7 +192,7 @@ flowchart TB
     end
 
     %% L4: Streaming & Control (Unified UI Dashboard)
-    subgraph L4_UI [L4: Streaming & Control Layer]
+    subgraph L4_UI ["L4: Streaming & Control Layer"]
         FASTAPI["FastAPI Server / WebSockets"]:::ui
         REACT_DASH["React Dashboard (Live Waterfall / Audio)"]:::ui
         
