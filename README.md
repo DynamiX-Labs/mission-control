@@ -414,9 +414,7 @@ The SDR architecture uses a pub/sub pattern (IQ Broadcaster) to separate IQ acqu
 *   **Audio Broadcaster** distributes demodulated audio from internal demodulators to:
 *   **Data Decoders** (AFSK) for signal decoding
     *   **UI Audio Stream** for live monitoring in browser
-
-> **Note:** The signal processing components (demodulators, broadcasters, decoders) were developed with assistance from Claude AI (Anthropic) to handle complex DSP algorithms. These components are clearly marked in the source code and are licensed under GPL-3.0 like the rest of the project.
-
+       
 ## IQ Recording & Playback
 
 Ground Station includes comprehensive IQ recording and playback capabilities using the [SigMF (Signal Metadata Format)](https://github.com/gnuradio/SigMF) standard:
