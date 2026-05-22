@@ -143,58 +143,58 @@ flowchart TB
     %% External Systems
     subgraph Space_Layer [External Space & Telemetry Interfaces]
         SAT((fa:fa-satellite Low Earth Orbit Satellites)):::external
-        CELESTRAK[(\"fa:fa-cloud CelesTrak TLE Data\")]:::external
+        CELESTRAK[("fa:fa-cloud CelesTrak TLE Data")]:::external
     end
 
     %% L0: Hardware & Benchmarking Layer
     subgraph L0_Hardware [L0: Hardware & Benchmarking Layer]
-        ANT(\"fa:fa-satellite-dish Az/El Antenna Array\"):::hardware
-        SDR[\"fa:fa-microchip SDR Digitizer (RTL-SDR / HackRF / USRP)\"]:::hardware
-        BENCH[\"fa:fa-stopwatch SDR-Hardware-Benchmark<br/>(Throughput, dropped samples, CPU/GPU profiling)\"]:::benchmark
+        ANT("fa:fa-satellite-dish Az/El Antenna Array"):::hardware
+        SDR["fa:fa-microchip SDR Digitizer (RTL-SDR / HackRF / USRP)"]:::hardware
+        BENCH["fa:fa-stopwatch SDR-Hardware-Benchmark<br/>(Throughput, dropped samples, CPU/GPU profiling)"]:::benchmark
         
         ANT -- RF Analog --> SDR
-        SDR == \"Raw Complex64 IQ Samples\" ==> BENCH
+        SDR == "Raw Complex64 IQ Samples" ==> BENCH
     end
 
     %% L1: Autonomous Pass Engine (Doppler-Auto-Tracker)
     subgraph L1_Tracking [L1: Autonomous Pass Engine (Doppler-Auto-Tracker)]
-        SGP4[\"fa:fa-compass SGP4 Pass Propagator\"]:::tracking
-        ROT_CTRL[\"fa:fa-cogs PID Rotator Driver (Hamlib)\"]:::tracking
-        DOPPLER[\"fa:fa-wave-square Doppler Frequency Calculator\"]:::tracking
+        SGP4["fa:fa-compass SGP4 Pass Propagator"]:::tracking
+        ROT_CTRL["fa:fa-cogs PID Rotator Driver (Hamlib)"]:::tracking
+        DOPPLER["fa:fa-wave-square Doppler Frequency Calculator"]:::tracking
         
-        CELESTRAK -. \"Fetch TLE\" .-> SGP4
-        SGP4 -- \"Target Az/El Vector\" --> ROT_CTRL
-        SGP4 -- \"Orbital Velocity\" --> DOPPLER
-        ROT_CTRL ==> \"Serial Az/El Nudges\" ==> ANT
+        CELESTRAK -. "Fetch TLE" .-> SGP4
+        SGP4 -- "Target Az/El Vector" --> ROT_CTRL
+        SGP4 -- "Orbital Velocity" --> DOPPLER
+        ROT_CTRL ==> "Serial Az/El Nudges" ==> ANT
     end
 
     %% L2: GPU-Accelerated DSP (SatSDR-Universal)
     subgraph L2_DSP [L2: GPU-Accelerated DSP (SatSDR-Universal)]
-        CHANNEL[\"fa:fa-filter Multi-Band Channelizer\"]:::dsp
-        DEMOD[\"fa:fa-music Baseband Demodulator (FM/SSB/AM)\"]:::dsp
-        SYNC[\"fa:fa-sync Carrier & Symbol Synchronizer\"]:::dsp
+        CHANNEL["fa:fa-filter Multi-Band Channelizer"]:::dsp
+        DEMOD["fa:fa-music Baseband Demodulator (FM/SSB/AM)"]:::dsp
+        SYNC["fa:fa-sync Carrier & Symbol Synchronizer"]:::dsp
         
-        BENCH == \"Stream Filtered IQ\" ==> CHANNEL
-        DOPPLER ==> \"Shift Correction Queue (Hz)\" ==> CHANNEL
-        CHANNEL == \"Isolated Baseband\" ==> DEMOD
-        DEMOD == \"Soft Demodulated Symbols\" ==> SYNC
+        BENCH == "Stream Filtered IQ" ==> CHANNEL
+        DOPPLER ==> "Shift Correction Queue (Hz)" ==> CHANNEL
+        CHANNEL == "Isolated Baseband" ==> DEMOD
+        DEMOD == "Soft Demodulated Symbols" ==> SYNC
     end
 
     %% L3: Telemetry, AI & Security (CubeSat-Telemetry-Decoder)
     subgraph L3_Telemetry [L3: Telemetry & AI (CubeSat-Telemetry-Decoder)]
-        DECODE[\"fa:fa-shield-alt AX.25 / CSP Frame Deframer\"]:::telemetry
-        CRYPTO[\"fa:fa-key Cryptography Engine (XTEA Decryption)\"]:::telemetry
-        AI_ANOMALY[\"fa:fa-brain AI Anomaly Detection\"]:::telemetry
+        DECODE["fa:fa-shield-alt AX.25 / CSP Frame Deframer"]:::telemetry
+        CRYPTO["fa:fa-key Cryptography Engine (XTEA Decryption)"]:::telemetry
+        AI_ANOMALY["fa:fa-brain AI Anomaly Detection"]:::telemetry
         
-        SYNC == \"Synced Bitstream\" ==> DECODE
-        DECODE == \"KISS/CSP Packets\" ==> CRYPTO
-        CRYPTO == \"Parsed Metrics\" ==> AI_ANOMALY
+        SYNC == "Synced Bitstream" ==> DECODE
+        DECODE == "KISS/CSP Packets" ==> CRYPTO
+        CRYPTO == "Parsed Metrics" ==> AI_ANOMALY
     end
 
     %% L4: Streaming & Control (Unified UI Dashboard)
     subgraph L4_UI [L4: Streaming & Control Layer]
-        FASTAPI[\"FastAPI Server / WebSockets\"]:::ui
-        REACT_DASH[\"React Dashboard (Live Waterfall / Audio)\"]:::ui
+        FASTAPI["FastAPI Server / WebSockets"]:::ui
+        REACT_DASH["React Dashboard (Live Waterfall / Audio)"]:::ui
         
         AI_ANOMALY -.-> FASTAPI
         BENCH -.-> FASTAPI
