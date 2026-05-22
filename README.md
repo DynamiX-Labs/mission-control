@@ -6,8 +6,6 @@
 
 ---
 
-
-
 ### Who is this project for?
 
 Designed for a wide range of aerospace, academic, and enthusiast applications:
