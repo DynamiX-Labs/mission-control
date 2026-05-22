@@ -31,17 +31,17 @@ The suite is engineered around the standard **DynamiX-Labs L0-L4 Multi-Layer Arc
 
 <div align="center">
 
-### Satellite Pass Schedule & Overview
-<img src="docs/images/satellite-pass-schedule-overview.png" alt="Satellite pass schedule with group filtering and upcoming passes" width="800"/>
-
-*Real-time satellite group overview with visibility status, elevation tracking, pass progress bars, and a rolling timeline of upcoming passes for the next 4 hours*
-
----
-
 ### Single-Target Tracking Console
 <img src="docs/images/satellite-tracking-console.png" alt="Single satellite tracking console with map and rotator control" width="800"/>
 
 *Dedicated tracking view for a single satellite showing Leaflet map with ground track, real-time Az/El/Alt/Vel telemetry, position data, and rotator control panel with polar gauge*
+
+---
+
+### Satellite Pass Schedule & Overview
+<img src="docs/images/satellite-pass-schedule-overview.png" alt="Satellite pass schedule with group filtering and upcoming passes" width="800"/>
+
+*Real-time satellite group overview with visibility status, elevation tracking, pass progress bars, and a rolling timeline of upcoming passes for the next 4 hours*
 
 ---
 
