@@ -60,6 +60,29 @@ class SocketEvents:
     # System Info (CPU/MEM/Disk/OS) live updates
     SYSTEM_INFO = "system-info"
 
+    # Self-Interference Canceller
+    SIC_STATUS = "sic-status"
+
+    # Doppler Predictor
+    DOPPLER_CURVE = "doppler-curve"
+
+    # TX Pipeline
+    TX_SCHEDULE = "tx-schedule"
+    TX_STATUS = "tx-status"
+    TX_POWER_STATUS = "tx-power-status"
+    TX_BURST_STATUS = "tx-burst-status"
+
+    # Transponder
+    TRANSPONDER_STATUS = "transponder-status"
+
+    # APRS
+    APRS_IGATE_STATUS = "aprs-igate-status"
+    APRS_TRACKS = "aprs-tracks"
+    APRS_TELEMETRY = "aprs-telemetry"
+
+    # Duplex Calibration
+    DUPLEX_CALIBRATION = "duplex-calibration"
+
 
 # ============================================================================
 # Queue Message Types (inter-process communication)

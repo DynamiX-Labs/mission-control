@@ -80,6 +80,10 @@ The suite is engineered around the standard **DynamiX-Labs L0-L4 Multi-Layer Arc
 *   **AI-Powered Transcription:** Real-time speech-to-text for demodulated audio via Gemini Live or Deepgram. Privacy-conscious and user-keyed, with optional translation and file output to `backend/data/transcriptions/`.
 *   **Scheduled Observations:** Define detailed observation tasks that automatically listen, decode, transcribe, and record audio and IQ during satellite passes without manual intervention.
 *   **SatDump Integration:** Decode weather satellite images from METEOR-M2 (LRPT and HRPT) via SatDump, coupled with automated observations.
+*   **Full Duplex Operations:** True simultaneous TX/RX capabilities with adaptive Self-Interference Cancellation (SIC), Coherent Duplex LO locking, and automated antenna isolation calibration.
+*   **Advanced TX Pipeline:** Automated transmissions via a precision TX Scheduler, sub-50ms TX Burst Engine for CubeSat telecommands, dynamic elevation-based TX Power Control, and Frequency Agile TX hopping.
+*   **Native DSP & Transponders:** Built-in Linear Transponder mode (frequency-inverting repeater), SSB Voice Transceiver with BFO, CW Morse Keyer, and DSSS Spread Spectrum TX - entirely software-defined.
+*   **APRS & Telemetry Network:** Native APRS iGate bridge to APRS-IS networks, real-time APRS Object Tracker mapping, and deep decoding of T# sequence telemetry packets.
 *   **Performance Monitoring:** Real-time visualization of the signal processing pipeline showing data flow between components (SDR → FFT → Demodulator → Decoder → Browser), queue health monitoring, throughput rates, and component statistics to diagnose bottlenecks and optimize performance.
 *   **Responsive Web Interface:** A modern, responsive, and intuitive web interface built with Material-UI that adapts seamlessly to desktop, tablet, and mobile devices, allowing you to control all aspects of the ground station from anywhere on your network. Works great on a tablet and cell.
 

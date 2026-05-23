@@ -1,5 +1,5 @@
 # Copyright (c) 2025 Efstratios Goudelis
-# Modifications and extensions Copyright (C) 2026 DynamiX-Labs
+# Modifications and extensions Copyright (C) 2025 DynamiX-Labs
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -459,8 +459,6 @@ def rtlsdr_worker_process(
 
 # Target blocks per second for constant rate streaming
 TARGET_BLOCKS_PER_SEC = 15
-
-
 def calculate_samples_per_scan(sample_rate, fft_size):
     """Calculate number of samples per scan for constant block rate streaming."""
     if fft_size is None:
